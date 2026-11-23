@@ -1,0 +1,6 @@
+{
+  "name": "BioForge Lab",
+  "description": "A scientifically grounded top-down pixel-art molecular biology laboratory simulator with real-time microbial growth kinetics, interactive instrumentation, and experimental notebooks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

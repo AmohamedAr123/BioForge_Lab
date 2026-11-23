@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    font-family: var(--font-sans);
+    background-color: #0b0e17;
+    color: #f1f5f9;
+  }
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Subtle custom scrollbars matching clinical obsidian theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0e17;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #283548;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b4f6b;
+}
+
+@keyframes lab-orbit {
+  0% {
+    transform: translate(var(--orbit-r, 3px), 0px);
+  }
+  25% {
+    transform: translate(0px, var(--orbit-r, 3px));
+  }
+  50% {
+    transform: translate(calc(var(--orbit-r, 3px) * -1), 0px);
+  }
+  75% {
+    transform: translate(0px, calc(var(--orbit-r, 3px) * -1));
+  }
+  100% {
+    transform: translate(var(--orbit-r, 3px), 0px);
+  }
+}
+
+@keyframes lab-bubble-rise {
+  0% {
+    transform: translateY(6px) scale(0.75);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(-22px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes lab-drop-fall {
+  0% {
+    transform: translateY(-10px) scale(0.85);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(26px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes lab-suction-rise {
+  0% {
+    transform: translateY(24px) scale(0.85);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-14px) scale(1.08);
+    opacity: 0;
+  }
+}
+
+@keyframes lab-swirl-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes lab-beam-sweep {
+  0% {
+    transform: translateX(-18px);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(18px);
+    opacity: 0.2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
